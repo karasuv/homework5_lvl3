@@ -29,7 +29,11 @@ public class Car implements Runnable{
             System.out.println(this.name + " готов");
             MainClass.BARRIER.await();
             for (int i = 0; i < race.getStages().size(); i++) {
-                race.getStages().get(i).go(this);
+                race.getStages().get(i).go(this);  //когда сам сделал ДЗ,
+                                                        // то в этой строке вылазила ошибка NullPointerException
+                                                        // хотя 5 раз проверил с Вашим файлом  все идентично казалось
+                                                        // так и не понял где ошибся...
+                                                        // и вообще почему-то у меня ДЗ в этом lvl3 очень проблемно идут :(
             }
             synchronized (race.getMon()) {
                 if (winnerCount++ == 0){
